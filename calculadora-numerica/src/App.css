@@ -1,8 +1,9 @@
-/* Garante que html, body e #root preencham toda a altura da tela */
+/* Garante que html, body e #root preencham toda a altura da tela e evitem rolagem */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 /* Container principal da aplicação */
@@ -24,17 +25,18 @@ html, body, #root {
   color: #f4f4f4;
 }
 
-/* Navegação com botões centralizados e botão de tema à direita */
+/* Navegação: para telas grandes, menu horizontal */
 .navbar {
   background: #007bff;
   padding: 1em;
   display: flex;
-  justify-content: space-between; /* Distribui espaço entre menu e botão de tema */
+  justify-content: space-between; /* Menu à esquerda e botão de tema à direita */
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* Menu de navegação centralizado */
+/* Menu de navegação (itens em linha, sem quebra) */
 .nav-menu {
   list-style: none;
   display: flex;
@@ -43,7 +45,7 @@ html, body, #root {
   padding: 0;
 }
 
-/* Estilos dos botões do menu */
+/* Botões do menu (versão desktop) */
 .nav-button {
   background-color: #fff;
   color: #007bff;
@@ -53,17 +55,18 @@ html, body, #root {
   font-weight: bold;
   border: none;
   transition: background-color 0.3s;
+  white-space: nowrap; /* Impede a quebra do texto */
 }
 
 .nav-button:hover {
   background-color: #e0e0e0;
 }
 
-/* Botão de alternar tema alinhado à direita */
+/* Botão de alternar tema alinhado à direita com ícone/emoji */
 .theme-toggle {
   background: transparent;
   border: none;
-  font-size: 1.5em; /* Aumenta o tamanho do ícone */
+  font-size: 1.5em; /* Tamanho do ícone */
   cursor: pointer;
   transition: transform 0.3s;
   color: #fff;
@@ -84,10 +87,11 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2em;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
-/* Container dos componentes */
+/* Container dos componentes (formulários e resultados) */
 .container {
   background: #fff;
   padding: 2em;
@@ -96,6 +100,7 @@ html, body, #root {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
+  box-sizing: border-box;
 }
 
 /* Ajuste para o tema escuro no container */
@@ -121,6 +126,7 @@ html, body, #root {
   padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 /* Botões dos formulários */
@@ -155,4 +161,80 @@ button:hover {
 .app.dark .result {
   background: #444;
   color: #f4f4f4;
+}
+
+/* Media query para telas pequenas: transforma a navbar em uma sidebar à esquerda 
+   e utiliza emojis nos botões de navegação com maior espaçamento */
+@media (max-width: 600px) {
+  /* Altera o layout principal para linha: sidebar + conteúdo */
+  .app {
+    flex-direction: row;
+  }
+  
+  /* Sidebar (navbar) fixa à esquerda */
+  .navbar {
+    flex-direction: column;
+    width: 140px; /* largura fixa para a sidebar */
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em 0;
+  }
+  
+  /* Menu de navegação na sidebar: itens em coluna com maior espaçamento */
+  .nav-menu {
+    flex-direction: column;
+    gap: 1.5em;  /* Espaçamento maior entre os itens */
+    width: 100%;
+    align-items: center;
+  }
+  
+  /* Botões de navegação: ajusta tamanho e oculta o texto */
+  .nav-button {
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    text-indent: -9999px; /* Oculta o texto */
+  }
+  
+  /* Pseudo-elemento para exibir emoji nos botões */
+  .nav-button::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    line-height: 1;
+  }
+  
+  /* Define o emoji para cada botão */
+  .nav-menu li:nth-child(1) .nav-button::before {
+    content: "🔢";  /* Arredondamento */
+  }
+  
+  .nav-menu li:nth-child(2) .nav-button::before {
+    content: "🧪";  /* Notação Científica */
+  }
+  
+  .nav-menu li:nth-child(3) .nav-button::before {
+    content: "⚡";  /* Potenciação */
+  }
+  
+  /* O botão de tema fica na parte inferior da sidebar */
+  .theme-toggle {
+    margin-top: auto;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+  }
+  
+  /* Área de conteúdo ocupa o restante do espaço */
+  .content {
+    flex: 1;
+    padding: 1em;
+    overflow: auto;
+    box-sizing: border-box;
+  }
 }

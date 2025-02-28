@@ -1,0 +1,21 @@
+{
+  "name": "matematica_cti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proddy-0/Matematica_CTI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Proddy-0/Matematica_CTI/issues"
+  },
+  "homepage": "https://github.com/Proddy-0/Matematica_CTI#readme"
+}
