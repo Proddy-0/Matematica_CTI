@@ -1,0 +1,158 @@
+/* Garante que html, body e #root preencham toda a altura da tela */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container principal da aplicação */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tema claro */
+.app.light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Tema escuro */
+.app.dark {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+/* Navegação com botões centralizados e botão de tema à direita */
+.navbar {
+  background: #007bff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between; /* Distribui espaço entre menu e botão de tema */
+  align-items: center;
+  width: 100%;
+}
+
+/* Menu de navegação centralizado */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos dos botões do menu */
+.nav-button {
+  background-color: #fff;
+  color: #007bff;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Botão de alternar tema alinhado à direita */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.5em; /* Aumenta o tamanho do ícone */
+  cursor: pointer;
+  transition: transform 0.3s;
+  color: #fff;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Ajuste de cor do botão de tema para o modo claro */
+.app.light .theme-toggle {
+  color: #333;
+}
+
+/* Área de conteúdo principal centralizada */
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+/* Container dos componentes */
+.container {
+  background: #fff;
+  padding: 2em;
+  margin: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Ajuste para o tema escuro no container */
+.app.dark .container {
+  background: #444;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para formulários */
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botões dos formulários */
+button {
+  padding: 0.7em 1.5em;
+  margin-right: 0.5em;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Mensagens de erro */
+.error {
+  color: red;
+}
+
+/* Resultado padrão para tema claro */
+.result {
+  background: #fff;
+  padding: 1em;
+  color: #333;
+}
+
+/* Resultado para tema escuro */
+.app.dark .result {
+  background: #444;
+  color: #f4f4f4;
+}
