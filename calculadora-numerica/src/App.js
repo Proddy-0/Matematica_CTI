@@ -5,6 +5,7 @@ import ScientificNotation from './components/ScientificNotation';
 import Exponentiation from './components/Exponentiation';
 import Converter from './components/Converter';
 import ScientificCalculator from './components/ScientificCalculator';
+import Summation from './components/Summation';
 import './App.css';
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             <li>
               <Link to="/calculadora" className="nav-button">Calculadora Científica</Link>
             </li>
+            <li>
+              <Link to="/somatorio" className="nav-button">Somatório</Link>
+            </li>
           </ul>
           <button onClick={toggleTheme} className="theme-toggle">
             {theme === 'light' ? '🌙' : '☀️'}
@@ -45,6 +49,7 @@ function App() {
           <Route path="/potenciacao" element={<Exponentiation />} />
           <Route path="/converter" element={<Converter />} />
           <Route path="/calculadora" element={<ScientificCalculator />} />
+          <Route path="/somatorio" element={<Summation />} />
         </Routes>
       </div>
     </Router>

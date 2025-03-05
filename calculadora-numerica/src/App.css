@@ -163,6 +163,54 @@ button:hover {
   color: #f4f4f4;
 }
 
+/* Estilos para a tabela de somatório */
+.table-container {
+  margin-top: 1em;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.app.dark th {
+  background-color: #555;
+}
+
+/* Estilos para o símbolo de somatório */
+.summation-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0;
+  flex-wrap: wrap;
+}
+
+.summation-top,
+.summation-bottom {
+  font-size: 1.2em;
+}
+
+.summation-middle {
+  font-size: 3em;
+  margin: 0 0.5em;
+}
+
+.summation-term {
+  font-size: 1.5em;
+}
+
 /* Media query para telas pequenas: transforma a navbar em uma sidebar à esquerda 
    e utiliza emojis nos botões de navegação com maior espaçamento */
 @media (max-width: 600px) {
